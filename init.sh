@@ -2,8 +2,16 @@
 read -p "コンテスト名を入力(ex:abc001): " dir_name
 working_dir=$dir_name
 
-if [ -d ${dir_name} ]; then
-    echo "既にディレクトリが存在します"
+if !(type oj > /dev/null 2>&1) ; then
+    printf "\e[31;40;1m"
+    echo "Failed: online-judge-toolsが見つかりませんでした"
+    printf "\e[32;40;1m"
+    echo "\"pip3 install online-judge-tools\" を実行してください"
+    printf "\e[m"
+elif [ -d ${dir_name} ]; then
+    printf "\e[33;40;1m"
+    echo "Failed: 既にディレクトリが存在します"
+    printf "\e[m"
 else
     mkdir $dir_name
 
