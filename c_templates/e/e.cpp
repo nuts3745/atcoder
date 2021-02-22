@@ -1,9 +1,12 @@
 #include <bits/stdc++.h>
-#define rep(i,n) for (int i = 0; i < (n); ++i)
 using namespace std;
+#include <atcoder/all>
+using namespace atcoder;
+#define rep(i, n) for (int i = 0; i < (n); ++i)
 using ll = long long;
-using P = pair<int,int>;
+using P = pair<int, int>;
 
-int main() {
+int main()
+{
     return 0;
 }

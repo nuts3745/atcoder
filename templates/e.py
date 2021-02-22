@@ -1,10 +1,11 @@
 #!usr/bin/env python3
-from collections import defaultdict, deque
-from heapq import heappush, heappop
-from itertools import permutations
-import sys
-import math
 import bisect
+import math
+import sys
+from collections import defaultdict, deque
+from heapq import heappop, heappush
+from itertools import permutations
+
 
 def LI(): return [int(x) for x in sys.stdin.readline().split()]
 
@@ -22,20 +23,20 @@ def S():
     return res
 
 
-def IR(n):
-    return [I() for i in range(n)]
+def IR(n: int):
+    return [I() for _ in range(n)]
 
 
-def LIR(n):
-    return [LI() for i in range(n)]
+def LIR(n: int):
+    return [LI() for _ in range(n)]
 
 
-def SR(n):
-    return [S() for i in range(n)]
+def SR(n: int):
+    return [S() for _ in range(n)]
 
 
-def LSR(n):
-    return [LS() for i in range(n)]
+def LSR(n: int):
+    return [LS() for _ in range(n)]
 
 
 sys.setrecursionlimit(1000000)

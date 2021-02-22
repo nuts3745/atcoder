@@ -16,6 +16,7 @@ else
     mkdir $dir_name
 
     cp -rf c_templates/* $dir_name/
+    cp -rf templates/* $dir_name/
 
     cd $dir_name/
 
