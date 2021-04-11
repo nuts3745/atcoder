@@ -6,8 +6,6 @@ from collections import defaultdict, deque
 from heapq import heappop, heappush
 from itertools import permutations
 
-import numpy as np
-
 
 def LI(): return [int(x) for x in sys.stdin.readline().split()]
 
@@ -45,21 +43,35 @@ sys.setrecursionlimit(1000000)
 mod = 1000000007
 
 
+# x=CJ y=JC
 def solve():
-    n,k,q = LI()
-    a = IR(q)
-    li = np.array([k,]*n)
-    for i in range(q):
-        li -= 1
-        li[a[i]-1] += 1
+    N = I()
+    L = SR(N)
+    cost = [0,]*N
+    for i in range(N):
+        x = int(L[i][0])
+        y = int(L[i][2])
+        s = L[i][4:]
+        CJ = ['C','J']
+        JC = ['J','C']
+        print(x, y, s)
+        for j in range(len(s)):
+            if s[j] == '?':
+                # ここで?をCとJに入れ替えた全通りを用意したほうがよさそう
+                s[j] = 'C'
+                if s[j:j+2] == CJ:
+                    cost[i] += x
+                if s[j:j+2] == JC:
+                    cost[i] += y
+                s[j] = 'J'
+                if s[j:j+2] == CJ:
+                    cost[i] += x
+                if s[j:j+2] == JC:
+                    cost[i] += y
 
 
-    for i in li:
-        if i > 0:
-            print("Yes")
-        else:
-            print("No")
-
+    for i in range(1, N+1):
+        print("Case #"+str(i)+": "+str(cost[i-1]))
     return
 
 

@@ -1,5 +1,10 @@
 #!usr/bin/env python3
+import bisect
+import math
 import sys
+from collections import defaultdict, deque
+from heapq import heappop, heappush
+from itertools import permutations
 
 
 def LI(): return [int(x) for x in sys.stdin.readline().split()]
@@ -37,14 +42,28 @@ def LSR(n: int):
 sys.setrecursionlimit(1000000)
 mod = 1000000007
 
+
+def Reversort(L):
+    count = 0
+    for i in range(len(L)-1):
+        j = L.index(min(L[i:len(L)]))
+        x = L[i:j+1][::-1]
+        L[i:j+1] = x
+        count += (j-i+1)
+    return count
+
+
 def solve():
-    n, m = LI()
-    li = LIR(m)
-    a, b = 0, n
-    for i in range(m):
-        a = max(a, li[i][0])
-        b = min(b, li[i][1])
-    print(b-a+1) if b - a + 1 >= 1 else print(0)
+    T = I()
+    N = []
+    L = []
+    for i in range(T):
+        n = I()
+        N.append(n)
+        l = LI()
+        L.append(l)
+    for i in range(1,T+1):
+        print("Case #"+str(i)+": "+str(Reversort(L[i-1])))
     return
 
 
